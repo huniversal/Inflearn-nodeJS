@@ -27,6 +27,8 @@ app.post('/register', async (req, res) => {
   // 그것들을 데이터 베이스에 넣어준다. 
   try {
     const user = new User(req.body)
+
+    
     await user.save();
     return res.status(200).json({ success: true });
   } catch (err) {
