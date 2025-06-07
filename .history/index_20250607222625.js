@@ -20,16 +20,10 @@ mongoose.connect(uri)
 
 app.get('/', (req, res) => res.send("Hello world"));
 
-app.post('/register', async (req, res) => {
+app.post('/register', (req, res) => {
   // 회원가입 할 때 필요한 정보들을 client에서 가져오면 
   // 그것들을 데이터 베이스에 넣어준다. 
-  try {
-    const user = new User(req.body)
-    await user.save();
-    return res.status(200).json({ success: true });
-  } catch (err) {
-    return res.status(400).json({ success: false, err });
-  }
+  const user = new User(req.body)
 
   // 정보들이 user 모델에 저장
   user.save((err, doc) => {
