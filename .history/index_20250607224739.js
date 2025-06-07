@@ -20,7 +20,7 @@ mongoose.connect(uri)
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
-app.get('/', (req, res) => res.send("Hello world 안녕하세요 저는 이훈진입니다. "));
+app.get('/', (req, res) => res.send("Hello world"));
 
 app.post('/register', async (req, res) => {
   // 회원가입 할 때 필요한 정보들을 client에서 가져오면 
